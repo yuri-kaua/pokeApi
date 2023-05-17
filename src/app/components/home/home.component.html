@@ -1,0 +1,39 @@
+<div class="container">
+  <div style="display: flex">
+    <div class="img"></div>
+    <div class="img2"></div>
+    <div class="img3"></div>
+  </div>
+  <hr />
+  <div class="opa">
+    <input
+      [(ngModel)]="filterPoke"
+      style="
+        height: 2rem;
+        width: 35rem;
+        border: 2px solid black;
+        border-radius: 10px;
+      "
+      pInputText
+      placeholder="Digite o nome do pekémon "
+    />
+    <p-button
+      (onClick)="allPoke()"
+      label="Buscar"
+      styleClass="p-button-secondary"
+    ></p-button>
+  </div>
+
+  <div class="cards">
+    <p-card *ngFor="let pokemon of allPokemons" [title]="pokemon.name">
+      <div>
+        <img [src]="pokemon.sprites.front_default" alt="" />
+      </div>
+    </p-card>
+  </div>
+  <p-card *ngIf="showPokemon">
+    <div>
+      <img [src]="buscarPoke ? buscarPoke.sprites.front_default : ''" alt="" />
+    </div>
+  </p-card>
+</div>
