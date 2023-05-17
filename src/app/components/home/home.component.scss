@@ -1,0 +1,51 @@
+.container {
+  background-color: #f9f9f9;
+}
+
+.img {
+  display: flex;
+  width: 15rem;
+  height: 15rem;
+  background-repeat: no-repeat;
+  background-image: url(https://freesvg.org/img/Pokeball_remix.png);
+  background-size: cover;
+}
+.img2 {
+  margin: 5px 18rem;
+  display: flex;
+  width: 15rem;
+  height: 15rem;
+  background-image: url(https://freesvgs.com/wp-content/uploads/2021/06/Pokemon-Logo-SVG-File.png);
+  background-size: cover;
+}
+.img3 {
+  display: flex;
+  width: 18rem;
+  height: 16rem;
+  background-image: url(https://www.nicepng.com/png/detail/201-2015062_moltres-legendary-bird-trio.png);
+  background-size: cover;
+}
+.opa {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+:host ::ng-deep .p-button {
+  height: 2rem;
+}
+
+:host ::ng-deep .p-card {
+  display: flex;
+  border-top: 5px solid gray;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0.5rem;
+  overflow-x: hidden;
+  margin: 0;
+}
