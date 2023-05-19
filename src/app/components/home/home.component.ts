@@ -7,20 +7,24 @@ import { ServiceService } from './service.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  showPokemon: boolean = true;
+  showPokemon: boolean = false;
   filterPoke!: string;
 
-  buscarPoke!: any;
+  sbuscarPoke!: any;
+
+  escolhidoPoke: any;
 
   allPokemons: any[] = [];
+
+  selectedPokemon!: any;
 
   constructor(private serviceService: ServiceService) {}
 
   ngOnInit() {
+    console.log('teste');
+
     this.serviceService.getAllPoke().subscribe({
       next: (res) => {
-        console.log(res);
-
         for (let i = 0; i < res.count; i++) {
           this.allPoke(res.results[i].name, true);
         }
@@ -32,11 +36,9 @@ export class HomeComponent implements OnInit {
   }
 
   allPoke(poke?: string, init?: boolean) {
-    this.showPokemon = true;
     this.serviceService.getPoke(poke ? poke : this.filterPoke).subscribe({
       next: (res) => {
         this.allPokemons.push(res);
-        console.log(this.allPokemons);
       },
       error: (error) => {
         console.log(error);
@@ -45,12 +47,12 @@ export class HomeComponent implements OnInit {
   }
   getAll() {
     this.allPokemons.map((pokemon) => {
-      for (let i = 0; i < 1281; i++) {
-        // this.allPoke(pokemon[i]);
-        console.log(pokemon[i]);
-      }
+      for (let i = 0; i < 1281; i++) {}
     });
+  }
 
-    // for (let i = 0; i < 1281; i++) {}
+  selectPokemon(pokemon: any) {
+    this.showPokemon = true;
+    this.selectedPokemon = pokemon;
   }
 }

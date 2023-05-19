@@ -5,12 +5,13 @@
     <div class="img3"></div>
   </div>
   <hr />
-  <div class="opa">
+  <div class="opa" id="overlay">
     <input
       [(ngModel)]="filterPoke"
       style="
-        height: 2rem;
+        height: 2.5rem;
         width: 35rem;
+        margin-right: 10px;
         border: 2px solid black;
         border-radius: 10px;
       "
@@ -25,15 +26,19 @@
   </div>
 
   <div class="cards">
-    <p-card *ngFor="let pokemon of allPokemons" [title]="pokemon.name">
+    <p-card
+      *ngFor="let pokemon of allPokemons"
+      [title]="pokemon.name"
+      (click)="selectPokemon(pokemon)"
+    >
       <div>
         <img [src]="pokemon.sprites.front_default" alt="" />
       </div>
     </p-card>
   </div>
-  <p-card *ngIf="showPokemon">
-    <div>
-      <img [src]="buscarPoke ? buscarPoke.sprites.front_default : ''" alt="" />
+  <div class="pokedex" *ngIf="showPokemon">
+    <div class="imag">
+      <img [src]="selectedPokemon.sprites.front_default" alt="" />
     </div>
-  </p-card>
+  </div>
 </div>
