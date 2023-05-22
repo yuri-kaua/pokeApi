@@ -8,9 +8,10 @@ import { ServiceService } from './service.service';
 })
 export class HomeComponent implements OnInit {
   showPokemon: boolean = false;
+  visible: boolean = false;
   filterPoke!: string;
 
-  sbuscarPoke!: any;
+  buscarPoke!: any;
 
   escolhidoPoke: any;
 
@@ -21,12 +22,13 @@ export class HomeComponent implements OnInit {
   constructor(private serviceService: ServiceService) {}
 
   ngOnInit() {
-    console.log('teste');
+    console.log('ola');
 
     this.serviceService.getAllPoke().subscribe({
       next: (res) => {
         for (let i = 0; i < res.count; i++) {
           this.allPoke(res.results[i].name, true);
+          console.log(res);
         }
       },
       error: (err) => {
@@ -53,6 +55,13 @@ export class HomeComponent implements OnInit {
 
   selectPokemon(pokemon: any) {
     this.showPokemon = true;
+    this.visible = true;
     this.selectedPokemon = pokemon;
+  }
+
+  close() {
+    this.visible = false;
+    this.showPokemon = false;
+    // location.reload();
   }
 }

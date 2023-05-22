@@ -1,11 +1,11 @@
 <div class="container">
-  <div style="display: flex">
+  <div style="display: flex; justify-content: space-between">
     <div class="img"></div>
     <div class="img2"></div>
     <div class="img3"></div>
   </div>
   <hr />
-  <div class="opa" id="overlay">
+  <div class="opa">
     <input
       [(ngModel)]="filterPoke"
       style="
@@ -26,6 +26,25 @@
   </div>
 
   <div class="cards">
+    <p-dialog
+      (click)="close()"
+      header="Header"
+      [(visible)]="visible"
+      [modal]="visible"
+      [style]="{ width: '50vw' }"
+      [draggable]="false"
+      [resizable]="false"
+    >
+      <p-card
+        *ngFor="let pokemon of allPokemons"
+        [title]="pokemon.name"
+        (click)="selectPokemon(pokemon)"
+      >
+        <div>
+          <img [src]="pokemon.sprites.front_default" alt="" />
+        </div>
+      </p-card>
+    </p-dialog>
     <p-card
       *ngFor="let pokemon of allPokemons"
       [title]="pokemon.name"
@@ -33,6 +52,7 @@
     >
       <div>
         <img [src]="pokemon.sprites.front_default" alt="" />
+        <div>{{ pokemon.name }}</div>
       </div>
     </p-card>
   </div>

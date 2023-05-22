@@ -7,6 +7,7 @@ import { HomeComponent } from './components/home/home.component';
 import { CardModule } from 'primeng/card';
 import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
+import { DialogModule } from 'primeng/dialog';
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -19,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule,
     ButtonModule,
+    DialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
