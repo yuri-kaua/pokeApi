@@ -5,8 +5,13 @@
     <div class="img3"></div>
   </div>
   <hr />
-  <div class="opa">
-    <input
+  <div class="allInput">
+    <p-autoComplete
+      [(ngModel)]="selectedPokemon"
+      [suggestions]="suggestionsPoke"
+      (completeMethod)="PokemonFilter($event)"
+    ></p-autoComplete>
+    <!-- <input
       [(ngModel)]="filterPoke"
       style="
         height: 2.5rem;
@@ -17,7 +22,7 @@
       "
       pInputText
       placeholder="Digite o nome do pekémon "
-    />
+    /> -->
     <p-button
       (onClick)="allPoke()"
       label="Buscar"
@@ -40,7 +45,7 @@
         [title]="pokemon.name"
         (click)="selectPokemon(pokemon)"
       >
-        <div>
+        <div class="img-poke">
           <img [src]="pokemon.sprites.front_default" alt="" />
         </div>
       </p-card>

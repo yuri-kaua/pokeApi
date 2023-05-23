@@ -24,19 +24,29 @@
   background-image: url(https://www.nicepng.com/png/detail/201-2015062_moltres-legendary-bird-trio.png);
   background-size: cover;
 }
-.opa {
+.allInput {
   display: flex;
   justify-content: center;
   margin-top: 8px;
+}
+
+:host ::ng-deep .p-autocomplete {
+  display: flex;
+  justify-content: center;
+  height: 2.5rem;
+  width: 30rem;
 }
 
 :host ::ng-deep .p-button {
   height: 2.5rem;
 }
 
-:host ::ng-deep .p-card {
-  display: flex;
-  border-top: 5px solid gray;
+:host ::ng-deep .p-card:hover {
+  border: 3px solid gray;
+}
+
+:host ::ng-deep .p-card-content {
+  background-color: none;
 }
 
 .cards {

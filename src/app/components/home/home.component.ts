@@ -11,6 +11,8 @@ export class HomeComponent implements OnInit {
   visible: boolean = false;
   filterPoke!: string;
 
+  suggestionsPoke: any;
+
   buscarPoke!: any;
 
   escolhidoPoke: any;
@@ -63,5 +65,11 @@ export class HomeComponent implements OnInit {
     this.visible = false;
     this.showPokemon = false;
     // location.reload();
+  }
+
+  PokemonFilter(event: any) {
+    this.suggestionsPoke = [
+      ...this.allPokemons.filter((pokemon) => pokemon.name === event.query),
+    ];
   }
 }
