@@ -30,11 +30,9 @@
   margin-top: 8px;
 }
 
-:host ::ng-deep .p-autocomplete {
+.namepoke {
   display: flex;
   justify-content: center;
-  height: 2.5rem;
-  width: 30rem;
 }
 
 :host ::ng-deep .p-button {
@@ -63,9 +61,6 @@
 .pokedex {
   width: 20rem;
   height: 30rem;
-  position: fixed;
-  top: 10rem;
-  right: 35rem;
   background-image: url(https://e0.pxfuel.com/wallpapers/1023/397/desktop-wallpaper-pokemon-pokedex-background-thumbnail.jpg);
   background-size: cover;
 
@@ -77,6 +72,72 @@
     img {
       width: 10rem;
       height: 10rem;
+      // background-image: url(https://i.pinimg.com/originals/f6/a1/8a/f6a18ac56651ce4f9ca7e0230706a0b6.png);
+      // background-size: cover;
     }
   }
 }
+
+.images {
+  display: flex;
+  justify-content: space-between;
+}
+
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+@media only screen and (max-width: 730px) {
+  .img2,
+  .img3 {
+    display: none;
+  }
+  .img {
+    display: flex;
+    width: 19rem;
+    height: 20rem;
+    background-repeat: no-repeat;
+    background-image: url(https://freesvg.org/img/Pokeball_remix.png);
+    background-size: cover;
+  }
+
+  .pokedex {
+    width: 20rem;
+    height: 30rem;
+    background-image: url(https://e0.pxfuel.com/wallpapers/1023/397/desktop-wallpaper-pokemon-pokedex-background-thumbnail.jpg);
+    background-size: cover;
+
+    .imag {
+      position: relative;
+      top: 7rem;
+      left: 5rem;
+
+      img {
+        width: 10rem;
+        height: 10rem;
+        // background-image: url(https://i.pinimg.com/originals/f6/a1/8a/f6a18ac56651ce4f9ca7e0230706a0b6.png);
+        // background-size: cover;
+      }
+    }
+  }
+
+  .images {
+    justify-content: center;
+  }
+}
+
+// @media only screen and (min-width: 820px) {
+//   .img2 {
+//     display: flex;
+//     width: 18rem;
+//     height: 19rem;
+//     background-image: url(https://freesvgs.com/wp-content/uploads/2021/06/Pokemon-Logo-SVG-File.png);
+//   }
+// }

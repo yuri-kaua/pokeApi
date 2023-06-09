@@ -21,11 +21,13 @@ export class HomeComponent implements OnInit {
 
   selectedPokemon!: any;
 
+  namePokemon: string = '';
+
+  chosenPoke: any;
+
   constructor(private serviceService: ServiceService) {}
 
   ngOnInit() {
-    console.log('ola');
-
     this.serviceService.getAllPoke().subscribe({
       next: (res) => {
         for (let i = 0; i < res.count; i++) {
@@ -57,19 +59,33 @@ export class HomeComponent implements OnInit {
 
   selectPokemon(pokemon: any) {
     this.showPokemon = true;
-    this.visible = true;
+    // this.visible = true;
+    this.chosenPoke = false;
+    this.namePokemon = pokemon.name;
     this.selectedPokemon = pokemon;
   }
 
   close() {
     this.visible = false;
     this.showPokemon = false;
+    this.chosenPoke = false;
+
     // location.reload();
   }
 
-  PokemonFilter(event: any) {
-    this.suggestionsPoke = [
-      ...this.allPokemons.filter((pokemon) => pokemon.name === event.query),
-    ];
+  PokemonFilter() {
+    this.serviceService.getPoke(this.namePokemon).subscribe({
+      next: (res) => {
+        this.chosenPoke = res;
+        this.selectPokemon(res);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
+
+  closeCard() {
+    this.showPokemon = false;
   }
 }

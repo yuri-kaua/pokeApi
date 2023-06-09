@@ -8,7 +8,6 @@ import { CardModule } from 'primeng/card';
 import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
-import { AutoCompleteModule } from 'primeng/autocomplete';
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -22,7 +21,6 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     ButtonModule,
     DialogModule,
-    AutoCompleteModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
